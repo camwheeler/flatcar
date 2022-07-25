@@ -2,7 +2,7 @@ passwd:
   users:
     - name: cam
       ssh_authorized_keys:
-        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKisexdfmiD5DuK5hoMbmrQ3qLllXsSlAd9hpbOps0lb camwheel@gmail.com
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKisexdfmiD5DuK5hoMbmrQ3qLllXsSlAd9hpbOps0lb
       groups:
         - sudo
         - wheel
