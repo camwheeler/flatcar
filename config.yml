@@ -1,0 +1,40 @@
+passwd:
+  users:
+    - name: cam
+      ssh_authorized_keys:
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKisexdfmiD5DuK5hoMbmrQ3qLllXsSlAd9hpbOps0lb camwheel@gmail.com
+      groups:
+        - sudo
+        - wheel
+        - docker
+    - name: linuxgsm
+      uid: 1001
+      groups:
+        - docker
+storage:
+  filesystems:
+    - name: fastdisk
+      mount: 
+        device: /dev/disk/by-label/FAST_DATA
+        format: ext4
+    - name: slowdisk
+      mount: 
+        device: /dev/disk/by-label/DATA
+        format: btrfs
+  files:
+    - path: /etc/hostname
+      filesystem: root
+      mode: 0644
+      contents:
+        inline: genghiserve
+  links:
+    - path: /etc/localtime
+      filesystem: root
+      overwrite: true
+      target: /usr/share/zoneinfo/US/Central
+update:
+  group: stable
+locksmith:
+  reboot_strategy: "reboot"
+  window_start:    "Sun 3:00"
+  window_length:   "2h"
